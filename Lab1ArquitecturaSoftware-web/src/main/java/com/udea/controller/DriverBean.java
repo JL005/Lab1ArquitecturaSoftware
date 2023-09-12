@@ -123,9 +123,21 @@ public class DriverBean implements Serializable {
     }
 
     public String saveDriver() {
-        if (this.cedula.length() == 0 || this.cedula == null) {
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(myButton.getClientId(), new FacesMessage("El nombre es obligatorio"));
+        FacesContext context = FacesContext.getCurrentInstance();
+        if (driverFacade.cedulaExists(cedula)) {
+            context.addMessage(myButton.getClientId(), new FacesMessage("Ya hay un conductor registrado con esta cédula"));
+            return null;
+        }
+        if (driverFacade.correoExists(correo)) {
+            context.addMessage(myButton.getClientId(), new FacesMessage("Ya hay un conductor registrado con este correo"));
+            return null;
+        }
+        if (driverFacade.telefonoExists(telefono)) {
+            context.addMessage(myButton.getClientId(), new FacesMessage("Ya hay un conductor registrado con este teléfono"));
+            return null;
+        }
+        if (driverFacade.placaVehiculoExists(placaVehiculo)) {
+            context.addMessage(myButton.getClientId(), new FacesMessage("Ya hay un conductor registrado con este vehículo"));
             return null;
         }
         Driver driver = new Driver();
@@ -138,6 +150,7 @@ public class DriverBean implements Serializable {
         driver.setPlacaVehiculo(placaVehiculo);
         driver.setConductorActivado(conductorActivado);
         this.driverFacade.create(driver);
+        context.addMessage(myButton.getClientId(), new FacesMessage("Te has registrado sastisfactoriamente"));
         return "Driver Created";
 
     }

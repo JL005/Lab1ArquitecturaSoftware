@@ -29,10 +29,42 @@ public class DriverFacade extends AbstractFacade<Driver> implements DriverFacade
     public DriverFacade() {
         super(Driver.class);
     }
- 
-    public List<Driver> getAllDrivers(){
+
+    public List<Driver> getAllDrivers() {
         Query query = em.createNamedQuery("Driver.findAll");
         return query.getResultList();
     }
+
+    public boolean cedulaExists(String cedula) {
+        String queryString = "SELECT COUNT(d) FROM Driver d WHERE d.cedula = :cedula";
+        Query query = em.createQuery(queryString);
+        query.setParameter("cedula", cedula);
+        Long count = (Long) query.getSingleResult();
+        return count > 0;
+    }
+
     
+    public boolean telefonoExists(String telefono) {
+        String queryString = "SELECT COUNT(d) FROM Driver d WHERE d.telefono = :telefono";
+        Query query = em.createQuery(queryString);
+        query.setParameter("telefono", telefono);
+        Long count = (Long) query.getSingleResult();
+        return count > 0;
+    }
+
+    public boolean correoExists(String correo) {
+        String queryString = "SELECT COUNT(d) FROM Driver d WHERE d.correo = :correo";
+        Query query = em.createQuery(queryString);
+        query.setParameter("correo", correo);
+        Long count = (Long) query.getSingleResult();
+        return count > 0;
+    }
+    
+    public boolean placaVehiculoExists(String placaVehiculo) {
+        String queryString = "SELECT COUNT(d) FROM Driver d WHERE d.placaVehiculo = :placaVehiculo";
+        Query query = em.createQuery(queryString);
+        query.setParameter("placaVehiculo", placaVehiculo);
+        Long count = (Long) query.getSingleResult();
+        return count > 0;
+    }
 }

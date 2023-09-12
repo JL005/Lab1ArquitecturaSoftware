@@ -55,12 +55,11 @@
                 <p:message for="placa" styleClass="errormsg" />
 
                 <h:commandButton type="submit" id="myButton" value="Registrar" actionListener="#{driverBean.saveDriver()}" binding="#{driverBean.myButton}" class="button-3"/>
-                <h:message for="myButton"/>
                 <a href="/Lab1ArquitecturaSoftware-web/faces/searchDriver.xhtml" class="button-3">Listar conductores</a>
             </h:panelGrid>
-
+            <p:messages id="messages" />
         </h:form>
-        
+
     </h:body>
 </html>
 

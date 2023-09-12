@@ -4,7 +4,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.7.9.v20210604-rNA", date="2023-09-12T09:04:53")
+@Generated(value="EclipseLink-2.7.9.v20210604-rNA", date="2023-09-12T15:48:03")
 @StaticMetamodel(Driver.class)
 public class Driver_ { 
 

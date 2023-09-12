@@ -28,6 +28,14 @@ public interface DriverFacadeLocal {
     List<Driver> findRange(int[] range);
 
     int count();
-    
+
     List<Driver> getAllDrivers();
+
+    boolean cedulaExists(String cedula);
+
+    boolean telefonoExists(String telefono);
+
+    boolean correoExists(String correo);
+
+    boolean placaVehiculoExists(String placaVehiculos);
 }
