@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Formulario de Registro</title>
+        <link rel="stylesheet" href="css/styles.css"/>
+    </h:head>
+    <h:body>
+        <h:form prependId="false" class="text-algo">
+            <h1>Registrar un conductor</h1>
+            <h:panelGrid columns="3">
+
+                <p:outputLabel for="cedula" value="#{messages.cedula}" />
+                <p:inputText id="cedula" required="true" value="#{driverBean.cedula}">
+                    <f:attribute name="requiredMessage" value="#{messages.cedula_required}" />
+                </p:inputText>
+                <p:message for="cedula" styleClass="errormsg" /> 
+
+                <p:outputLabel for="nombre" value="#{messages.nombre}" />
+                <p:inputText id="nombre" required="true" value="#{driverBean.nombre}" >
+                    <f:attribute name="requiredMessage" value="#{messages.nombre_required}" />
+                </p:inputText>
+                <p:message for="nombre" styleClass="errormsg" />
+
+                <p:outputLabel for="apellidos" value="#{messages.apellidos}" />
+                <p:inputText id="apellidos" required="true" value="#{driverBean.apellidos}">
+                    <f:attribute name="requiredMessage" value="#{messages.apellidos_required}" />
+                </p:inputText>
+                <p:message for="apellidos" styleClass="errormsg" />
+
+                <p:outputLabel for="correo" value="#{messages.correo}" />
+                <p:inputText id="correo" required="true" value="#{driverBean.correo}"   >
+                    <f:attribute name="requiredMessage" value="#{messages.correo_required}" />
+                </p:inputText>
+                <p:message for="correo" styleClass="errormsg" />
+
+                <p:outputLabel for="telefono" value="#{messages.telefono}" />
+                <p:inputText id="telefono" required="true" value="#{driverBean.telefono}" >
+                    <f:attribute name="requiredMessage" value="#{messages.telefono_required}" />
+                </p:inputText>
+                <p:message for="telefono" styleClass="errormsg" />
+
+                <p:outputLabel for="vehiculo" value="#{messages.vehiculo}" />
+                <p:inputText id="vehiculo" required="true" value="#{driverBean.vehiculo}"  >
+                    <f:attribute name="requiredMessage" value="#{messages.vehiculo_required}" />
+                </p:inputText>
+                <p:message for="vehiculo" styleClass="errormsg" />
+
+                <p:outputLabel for="placa" value="#{messages.placaVehiculo}" />
+                <p:inputText id="placa" required="true" value="#{driverBean.placaVehiculo}" >
+                    <f:attribute name="requiredMessage" value="#{messages.placaVehiculo_required}" />
+                </p:inputText>
+                <p:message for="placa" styleClass="errormsg" />
+
+                <h:commandButton type="submit" id="myButton" value="Registrar" actionListener="#{driverBean.saveDriver()}" binding="#{driverBean.myButton}" class="button-3"/>
+                <h:message for="myButton"/>
+                <a href="/Lab1ArquitecturaSoftware-web/faces/searchDriver.xhtml" class="button-3">Listar conductores</a>
+            </h:panelGrid>
+
+        </h:form>
+        
+    </h:body>
+</html>
+

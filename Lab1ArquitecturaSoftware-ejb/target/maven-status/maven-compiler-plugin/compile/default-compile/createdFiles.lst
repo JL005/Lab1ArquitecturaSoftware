@@ -1,0 +1,5 @@
+com\udea\modelo\Driver.class
+com\udea\ejb\DriverFacadeLocal.class
+com\udea\ejb\DriverFacade.class
+com\udea\modelo\Driver_.class
+com\udea\ejb\AbstractFacade.class
