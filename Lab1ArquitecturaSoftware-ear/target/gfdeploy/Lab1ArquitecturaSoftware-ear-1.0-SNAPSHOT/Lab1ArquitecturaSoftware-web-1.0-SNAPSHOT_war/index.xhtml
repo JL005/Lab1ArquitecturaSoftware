@@ -9,7 +9,7 @@
     </h:head>
     <h:body>
         <h:form prependId="false" class="text-algo">
-            <h1>Registrar un conductor</h1>
+            <h1><p:outputLabel value="Registrar un conductor"/></h1>
             <h:panelGrid columns="3">
 
                 <p:outputLabel for="cedula" value="#{messages.cedula}" />
@@ -53,8 +53,11 @@
                     <f:attribute name="requiredMessage" value="#{messages.placaVehiculo_required}" />
                 </p:inputText>
                 <p:message for="placa" styleClass="errormsg" />
+                <div>
+                    <p:captcha id="captcha"></p:captcha>
+                </div>
 
-                <h:commandButton type="submit" id="myButton" value="Registrar" actionListener="#{driverBean.saveDriver()}" binding="#{driverBean.myButton}" class="button-3"/>
+                <h:commandButton type="submit" id="myButton" value="Registrar" action="posRegister" actionListener="#{driverBean.saveDriver()}" binding="#{driverBean.myButton}" class="button-3"/>
                 <a href="/Lab1ArquitecturaSoftware-web/faces/searchDriver.xhtml" class="button-3">Listar conductores</a>
             </h:panelGrid>
             <p:messages id="messages" />
